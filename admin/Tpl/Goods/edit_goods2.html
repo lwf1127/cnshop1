@@ -1,0 +1,26 @@
+<include file="Public:header" />
+</hr>
+<h3>图片管理</h3>
+<table>
+	<foreach name="thumbpath" item="path">
+	<tr style="float:left">
+		<td><img src="../../../../{$path}"></img></td>
+		<td><a href="{:U('Goods/edit_delimg','path='.base64_encode($path).'&id='.$_GET['id'])}">删除</a></td>
+	</tr>
+	</foreach> 
+</table>
+<form enctype="multipart/form-data" action="{:U('Goods/edit_imgsave','id='.$_GET['id'])}" method="post">
+	</hr>
+	<h3>添加图片</h3>
+	<p>图片<input type="file"  name="photo[]"   multiple="multiple"></p>
+	</hr>
+	<h3>商品描述修改</h3>
+	</hr>
+	{:W('Editord',array($description))}
+	<input class="button" type="submit" value="修改" />
+</form>
+    
+
+
+
+<include file="Public:footer" />
